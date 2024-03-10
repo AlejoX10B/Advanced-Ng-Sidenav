@@ -11,16 +11,46 @@ export const routes: Routes = [
     providers: [SidenavService],
     children: [
       {
-        path: 'dashboard',
-        title: 'Dashboard',
-        loadComponent: () => import('../core/dashboard.component'),
+        path: 'document',
+        title: 'Document',
+        loadComponent: () => import('../core/document.component'),
       },
       {
-        path: 'products',
-        title: 'Productos',
-        loadComponent: () => import('../core/products.component'),
+        path: 'important',
+        title: 'Inbox',
+        loadComponent: () => import('../core/important.component'),
       },
-      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+      {
+        path: 'inbox',
+        title: 'Inbox',
+        loadComponent: () => import('../core/inbox.component'),
+      },
+      {
+        path: 'sent',
+        title: 'Sent',
+        loadComponent: () => import('../core/sent.component'),
+      },
+      {
+        path: 'settings',
+        title: 'Settings',
+        loadComponent: () => import('../core/settings.component'),
+      },
+      {
+        path: 'spam',
+        title: 'Spam',
+        loadComponent: () => import('../core/spam.component'),
+      },
+      {
+        path: 'starred',
+        title: 'Starred',
+        loadComponent: () => import('../core/starred.component'),
+      },
+      {
+        path: 'trash',
+        title: 'Trash',
+        loadComponent: () => import('../core/trash.component'),
+      },
+      { path: '', pathMatch: 'full', redirectTo: 'inbox' },
       { path: '**', redirectTo: '' }
     ]
   }

@@ -1,16 +1,16 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-trash',
   standalone: true,
   imports: [],
   template: `
     <p>
-      products works!
+      trash works!
     </p>
   `,
   styles: ``
 })
-export default class ProductsComponent {
+export default class TrashComponent {
 
 }

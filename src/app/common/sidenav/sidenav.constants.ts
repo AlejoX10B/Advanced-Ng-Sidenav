@@ -5,44 +5,44 @@ export const navItems = {
     {
       label: 'Inbox',
       icon: 'mail',
-      routerLink: '',
+      routerLink: 'inbox',
     },
     {
       label: 'Starred',
       icon: 'star',
-      routerLink: '',
+      routerLink: 'starred',
     },
     {
       label: 'Sent',
       icon: 'send',
-      routerLink: '',
+      routerLink: 'sent',
     },
     {
       label: 'Document',
       icon: 'description',
-      routerLink: '',
+      routerLink: 'document',
     },
     {
       label: 'Important',
       icon: 'bookmark',
-      routerLink: '',
+      routerLink: 'important',
     },
     {
       label: 'Spam',
       icon: 'report',
-      routerLink: '',
+      routerLink: 'spam',
     },
     {
       label: 'Trash',
       icon: 'delete',
-      routerLink: '',
+      routerLink: 'trash',
     },
   ],
   footer: [
     {
       label: 'Settings',
       icon: 'settings',
-      routerLink: ''
+      routerLink: 'settings'
     },
     {
       label: 'Log Out',

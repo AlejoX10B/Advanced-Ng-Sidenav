@@ -1,16 +1,16 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'section[dashboard]',
+  selector: 'app-important',
   standalone: true,
   imports: [],
   template: `
     <p>
-      dashboard works!
+      important works!
     </p>
   `,
   styles: ``
 })
-export default class DashboardComponent {
+export default class ImportantComponent {
 
 }
