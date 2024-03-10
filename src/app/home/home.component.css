@@ -1,0 +1,17 @@
+aside {
+  height: 100%;
+  width: 250px;
+  overflow: hidden;
+  padding: 20px 15px;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-bg-sidenav);
+}
+
+main {
+  height: 100%;
+  margin-left: 250px;
+  background-color: gainsboro;
+}

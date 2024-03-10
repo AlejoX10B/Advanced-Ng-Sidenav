@@ -1,0 +1,43 @@
+<header>
+  <button class="logo" (click)="collapsed.set(!collapsed())">
+    <i class=" material-symbols-rounded">cloud</i>
+    <span [@fadeInOut]="collapsed()">Domus</span>
+  </button>
+
+  <button type="button">
+    <i [@rotate]="collapsed()" class="material-symbols-rounded">add</i>
+    <span [@fadeInOut]="collapsed()">Create new</span>
+  </button>
+</header>
+
+<hr>
+
+<nav>
+  <ul>
+    @for(item of items.main; track $index) {
+    <li>
+      <a routerLink="{{ item.routerLink }}">
+        <i class="material-symbols-rounded">{{ item.icon }}</i>
+        <span [@fadeInOut]="collapsed()">{{ item.label }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>
+
+<hr>
+
+<footer>
+  <nav>
+    <ul>
+      @for(item of items.footer; track $index) {
+      <li>
+        <a routerLink="{{ item.routerLink }}">
+          <i class="material-symbols-rounded">{{ item.icon }}</i>
+          <span [@fadeInOut]="collapsed()">{{ item.label }}</span>
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
+</footer>

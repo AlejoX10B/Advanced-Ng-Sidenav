@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  template: `
-    <h1>Hola Mundo!</h1>
-  `,
+  imports: [RouterOutlet],
+  template: ` <router-outlet /> `,
 })
 export class AppComponent {
   title = 'Playground';
