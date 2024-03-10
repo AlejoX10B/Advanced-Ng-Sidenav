@@ -20,6 +20,25 @@ span {
 
 /* Header */
 
+#collapse-button {
+  width: 26px;
+  height: 26px;
+  border: none;
+  display: grid;
+  position: fixed;
+  border-radius: 50%;
+  text-align: center;
+  place-content: center;
+  color: var(--color-text);
+  background-color: var(--color-bg-menu-hover);
+  left: calc(250px - 26px / 2);
+  top: 30px;
+}
+
+#collapse-button i {
+  min-width: none;
+}
+
 header .logo {
   gap: 14px;
   width: 100%;

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { RouterModule } from '@angular/router'
 
-import { fadeInOut, navItems, rotate } from './sidenav.constants'
+import { fadeInOut, moveButton, navItems, rotate } from './sidenav.constants'
 
 import SidenavService from '../sidenav.service'
 
@@ -10,9 +10,10 @@ import SidenavService from '../sidenav.service'
   imports: [
     RouterModule
   ],
-  animations: [
-    rotate,
+  animations: [,
+    moveButton,
     fadeInOut,
+    rotate,
   ],
   standalone: true,
   selector: 'aside[sidenav]',

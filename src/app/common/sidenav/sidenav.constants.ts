@@ -69,6 +69,12 @@ export const expandMain = trigger('expandedMain', [
   transition('false <=> true', animate('0.5s ease'))
 ])
 
+export const moveButton = trigger('moveBtn', [
+  state('false', style({ left: 'calc(250px - 26px / 2)' })),
+  state('true', style({ left: 'calc(80px - 26px / 2)' })),
+  transition('false <=> true', animate('0.5s ease'))
+])
+
 export const fadeInOut = trigger('fadeInOut', [
   state('false', style({ width: '100px', opacity: 1 })),
   state('true', style({ width: 0, opacity: 0 })),
