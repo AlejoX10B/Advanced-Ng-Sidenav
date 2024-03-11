@@ -52,27 +52,39 @@ export const navItems = {
   ]
 }
 
-export const collapseSidenav = trigger('collapsedNav', [
-  state('false', style({ width: '250px' })),
-  state('true', style({ width: '80px' })),
-  transition('false <=> true',
+export const animateSidenav = trigger('animSidenav', [
+  state('initial', style({ width: '250px', left: 0 })),
+  state('collapsed', style({ width: '80px', left: 0 })),
+  state('hidden', style({ width: '250px', left: '-250px' })),
+  state('all', style({ width: '80px', left: '-80px' })),
+  transition('* <=> *',
     group([
-      query('@*', animateChild()),
+      query('@*', animateChild(), { optional: true }),
       animate('0.5s ease')
     ])
   )
 ])
 
-export const expandMain = trigger('expandedMain', [
-  state('false', style({ marginLeft: '250px' })),
-  state('true', style({ marginLeft: '80px' })),
-  transition('false <=> true', animate('0.5s ease'))
+export const animateMain = trigger('animMain', [
+  state('initial',
+    style({ marginLeft: '{{marginLeftInitial}}' }),
+    { params: { marginLeftInitial: '250px' } }
+  ),
+  state('collapsed',
+    style({ marginLeft: '{{marginLeftCollapsed}}' }),
+    { params: { marginLeftCollapsed: '80px' } }
+  ),
+  state('hidden', style({ marginLeft: 0 })),
+  state('all', style({ marginLeft: 0 })),
+  transition('* <=> *', animate('0.5s ease'))
 ])
 
-export const moveButton = trigger('moveBtn', [
-  state('false', style({ left: 'calc(250px - 26px / 2)' })),
-  state('true', style({ left: 'calc(80px - 26px / 2)' })),
-  transition('false <=> true', animate('0.5s ease'))
+export const animateToggleSidenavBtn = trigger('animToggleSidenavBtn', [
+  state('initial', style({ left: 'calc(250px - 26px / 2)', opacity: 1 })),
+  state('collapsed', style({ left: 'calc(80px - 26px / 2)', opacity: 1 })),
+  state('hidden', style({ left: '-26px', opacity: 0 })),
+  state('all', style({ left: '-26px', opacity: 0 })),
+  transition('* <=> *', animate('0.5s ease'))
 ])
 
 export const fadeInOut = trigger('fadeInOut', [
@@ -92,3 +104,4 @@ export const rotate = trigger('rotate', [
     )
   )
 ])
+

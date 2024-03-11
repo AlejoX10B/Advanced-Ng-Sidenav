@@ -15,3 +15,13 @@ main {
   margin-left: 250px;
   background-color: gainsboro;
 }
+
+@media (max-width: 768px) {
+  aside {
+    left: -250px;
+  }
+
+  main {
+    margin-left: 0;
+  }
+}

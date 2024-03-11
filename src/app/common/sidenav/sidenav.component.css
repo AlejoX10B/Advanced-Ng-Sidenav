@@ -36,7 +36,7 @@ span {
 }
 
 #collapse-button i {
-  min-width: none;
+  min-width: initial;
 }
 
 header .logo {

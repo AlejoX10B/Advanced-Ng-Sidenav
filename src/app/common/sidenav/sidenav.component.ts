@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { RouterModule } from '@angular/router'
 
-import { fadeInOut, moveButton, navItems, rotate } from './sidenav.constants'
+import { animateToggleSidenavBtn, fadeInOut, navItems, rotate } from './sidenav.constants'
 
 import SidenavService from '../sidenav.service'
 
@@ -11,7 +11,7 @@ import SidenavService from '../sidenav.service'
     RouterModule
   ],
   animations: [,
-    moveButton,
+    animateToggleSidenavBtn,
     fadeInOut,
     rotate,
   ],
@@ -25,6 +25,7 @@ export class SidenavComponent {
   private sidenavService = inject(SidenavService)
 
   collapsed = this.sidenavService.collapsed
+  state = this.sidenavService.state
 
   items = navItems
 

@@ -1,5 +1,5 @@
 <header>
-  <button type="button" id="collapse-button" [@moveBtn]="collapsed()" (click)="collapsed.set(!collapsed())">
+  <button type="button" id="collapse-button" [@animToggleSidenavBtn]="state()" (click)="collapsed.set(!collapsed())">
     <i class="material-symbols-rounded">chevron_{{collapsed() ? 'right': 'left'}}</i>
   </button>
 

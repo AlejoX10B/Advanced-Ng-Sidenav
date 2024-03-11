@@ -7,6 +7,7 @@ import HomeComponent from './home.component'
 export const routes: Routes = [
   {
     path: '',
+    pathMatch: 'prefix',
     component: HomeComponent,
     providers: [SidenavService],
     children: [
@@ -53,5 +54,6 @@ export const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'inbox' },
       { path: '**', redirectTo: '' }
     ]
-  }
+  },
+  { path: '**', redirectTo: '' }
 ]
