@@ -20,7 +20,7 @@ import SidenavService from '../sidenav.service'
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css',
 })
-export class SidenavComponent {
+export default class SidenavComponent {
 
   private sidenavService = inject(SidenavService)
 
@@ -28,6 +28,5 @@ export class SidenavComponent {
   state = this.sidenavService.state
 
   items = navItems
-
 
 }

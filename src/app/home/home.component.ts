@@ -2,15 +2,17 @@ import { Component, HostListener, OnInit, computed, inject, signal } from '@angu
 import { RouterOutlet } from '@angular/router'
 
 import { animateMain, animateSidenav } from '../common/sidenav/sidenav.constants'
-import { SidenavComponent } from '../common/sidenav/sidenav.component'
 
 import SidenavService from '../common/sidenav.service'
+import SidenavComponent from '../common/sidenav/sidenav.component'
+import ToolbarComponent from '../common/toolbar/toolbar.component'
 
 
 @Component({
   imports: [
     RouterOutlet,
     SidenavComponent,
+    ToolbarComponent
   ],
   animations: [
     animateSidenav,
@@ -20,13 +22,13 @@ import SidenavService from '../common/sidenav.service'
   selector: 'home',
   template: `
     <aside sidenav [@animSidenav]="state()"></aside>
-    
-    <main [@animMain]="animMainConfig()">
-      <button type="button" (click)="hidden.set(!hidden())">
-        {{ hidden() ? 'Show': 'Hide' }}
-      </button>
 
-      <router-outlet />
+    <main [@animMain]="animMainConfig()">
+      <toolbar />
+      
+      <div class="content">
+        <router-outlet />
+      </div>
     </main>
   `,
   styleUrl: './home.component.css',

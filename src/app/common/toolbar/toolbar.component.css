@@ -1,0 +1,59 @@
+header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  background-color: var(--color-scroll);
+}
+
+header section {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section button {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+  color: var(--color-text-button);
+  background-color: var(--color-bg-button);
+}
+
+section button i {
+  text-align: center;
+  color: var(--color-text-button);
+}
+
+label {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+label input {
+  padding: 8px;
+  border-radius: 5px 0 0 5px;
+  font-size: 15px;
+  border: 2px solid var(--color-switch-btn);
+}
+label input:focus-visible {
+  outline: 2px solid var(--color-scroll-hover);
+}
+
+label button {
+  width: 40px;
+  display: grid;
+  place-content: center;
+  background-color: black;
+  border-radius: 0 5px 5px 0;
+}
+
+label button i {
+  color: white;
+  text-align: center;
+}

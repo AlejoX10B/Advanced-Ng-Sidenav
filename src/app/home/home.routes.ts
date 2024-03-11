@@ -7,10 +7,14 @@ import HomeComponent from './home.component'
 export const routes: Routes = [
   {
     path: '',
-    pathMatch: 'prefix',
     component: HomeComponent,
     providers: [SidenavService],
     children: [
+      {
+        path: 'inbox',
+        title: 'Inbox',
+        loadComponent: () => import('../core/inbox.component'),
+      },
       {
         path: 'document',
         title: 'Document',
@@ -20,11 +24,6 @@ export const routes: Routes = [
         path: 'important',
         title: 'Inbox',
         loadComponent: () => import('../core/important.component'),
-      },
-      {
-        path: 'inbox',
-        title: 'Inbox',
-        loadComponent: () => import('../core/inbox.component'),
       },
       {
         path: 'sent',
@@ -52,7 +51,7 @@ export const routes: Routes = [
         loadComponent: () => import('../core/trash.component'),
       },
       { path: '', pathMatch: 'full', redirectTo: 'inbox' },
-      { path: '**', redirectTo: '' }
+      { path: '**', redirectTo: 'inbox' }
     ]
   },
   { path: '**', redirectTo: '' }

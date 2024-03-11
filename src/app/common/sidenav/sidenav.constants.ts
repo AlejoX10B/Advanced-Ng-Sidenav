@@ -90,7 +90,7 @@ export const animateToggleSidenavBtn = trigger('animToggleSidenavBtn', [
 export const fadeInOut = trigger('fadeInOut', [
   state('false', style({ width: '100px', opacity: 1 })),
   state('true', style({ width: 0, opacity: 0 })),
-  transition('false <=> true', animate('0.25s ease'))
+  transition('false <=> true', animate('0.35s ease'))
 ])
 
 export const rotate = trigger('rotate', [
