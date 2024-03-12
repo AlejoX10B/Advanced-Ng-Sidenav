@@ -18,7 +18,25 @@ export const routes: Routes = [
       {
         path: 'document',
         title: 'Document',
-        loadComponent: () => import('../core/document.component'),
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () => import('../core/document.component')
+          },
+          {
+            path: 'music',
+            loadComponent: () => import('../core/document/music.component')
+          },
+          {
+            path: 'videos',
+            loadComponent: () => import('../core/document/videos.component')
+          },
+          {
+            path: 'office',
+            loadComponent: () => import('../core/document/office.component')
+          }
+        ],
       },
       {
         path: 'important',

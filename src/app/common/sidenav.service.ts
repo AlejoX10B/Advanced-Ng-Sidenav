@@ -1,12 +1,16 @@
-import { Injectable, computed, signal } from '@angular/core'
+import { Injectable, computed, inject, signal } from '@angular/core'
+import { Router } from '@angular/router'
+import { NavItem } from './sidenav/sidenav.constants'
 
 @Injectable()
 export default class SidenavService {
 
-  hidden = signal(false)
-  collapsed = signal(false)
+  private _router = inject(Router)
 
-  state = computed(() => {
+  hidden = signal<boolean>(false)
+  collapsed = signal<boolean>(false)
+
+  state = computed<string>(() => {
     const hidden = this.hidden()
     const collapsed = this.collapsed()
 
@@ -23,5 +27,9 @@ export default class SidenavService {
       return 'initial'
     }
   })
+
+  isActiveListItem(itemLink: string) {
+    return this._router.url.includes(itemLink)
+  }
 
 }

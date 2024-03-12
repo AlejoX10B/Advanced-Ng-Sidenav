@@ -20,10 +20,28 @@
   <ul>
     @for(item of items.main; track $index) {
     <li>
-      <a routerLink="{{ item.routerLink }}">
+      @if (
+      !item.items || (item.items && item.items.length === 0) ||
+      (collapsed() && item.items && item.items.length > 0)
+      ) {
+      <a routerLink="{{ item.routerLink }}" routerLinkActive="active-route" [routerLinkActiveOptions]="{ exact: true }">
         <i class="material-symbols-rounded">{{ item.icon }}</i>
         <span [@fadeInOut]="collapsed()">{{ item.label }}</span>
       </a>
+      }
+
+      @if (!collapsed() && item.items && item.items.length > 0) {
+      <a [class.active-route]="activeListItem(item)" (click)="toggleExpanded(item)">
+        <i class="material-symbols-rounded">{{ item.icon }}</i>
+        <span [@fadeInOut]="collapsed()">{{ item.label }}</span>
+        @if (item.items && item.items.length > 0) {
+        <i [@fadeInOut]="collapsed()" class="material-symbols-rounded">
+          {{ item.expanded ? 'expand_less' : 'expand_more' }}
+        </i>
+        }
+      </a>
+      <submenu [sublevel]="item" [multiple]="multiple" [expanded]="item.expanded" [collapsed]="collapsed()" />
+      }
     </li>
     }
   </ul>

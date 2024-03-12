@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, computed, inject, signal } from '@angular/core'
+import { Component, HostListener, OnInit, computed, effect, inject, signal } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 
 import { animateMain, animateSidenav } from '../common/sidenav/sidenav.constants'
@@ -63,20 +63,25 @@ export default class HomeComponent implements OnInit {
     }
   })
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    const width = event.target.innerWidth
-    this._windowWidth.set(width)
+  changeWindowWidth = effect(() => {
+    if (this._windowWidth() <= 768) {
+      this.collapsed.set(true)
+      this.hidden.set(true)
+      return
+    }
+
+    this.hidden.set(false)
+  },
+    { allowSignalWrites: true }
+  )
+
+  @HostListener('window:resize')
+  onResize() {
+    this._windowWidth.set(window.innerWidth)
   }
 
   ngOnInit() {
-    const width = window.innerWidth
-
-    this._windowWidth.set(width)
-    if (width < 768) {
-      this.collapsed.set(true)
-      this.hidden.set(true)
-    }
+    this._windowWidth.set(window.innerWidth)
   }
 
 }

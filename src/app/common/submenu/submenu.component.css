@@ -1,0 +1,58 @@
+ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-left: 10px;
+}
+
+li {
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  scroll-snap-align: start;
+}
+
+li:first-of-type {
+  margin-top: 10px;
+}
+li:last-of-type {
+  margin-bottom: 0;
+}
+
+li a {
+  height: 45px;
+  min-height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 10px;
+  color: var(--color-text-menu);
+  transition: color 0.225s ease, background-color 0.225s ease;
+}
+
+li a:hover {
+  color: var(--color-text-menu-hover);
+}
+
+li a.active-route {
+  color: var(--color-text-menu-hover);
+}
+
+li a i {
+  text-align: center;
+}
+
+li a i:first-of-type {
+  font-size: 5px;
+  min-width: 50px;
+}
+
+li a i:nth-of-type(2) {
+  font-size: 20px;
+  min-width: 25px;
+}

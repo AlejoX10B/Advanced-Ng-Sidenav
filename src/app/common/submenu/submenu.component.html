@@ -1,0 +1,27 @@
+@if (!collapsed && sublevel.items && sublevel.items.length > 0) {
+<ul class="sublevel" [@toggleSubmenu]="expanded">
+  @for (item of sublevel.items; track $index ) {
+  <li>
+    @if (!item.items || (item.items && item.items.length === 0)) {
+    <a routerLink="{{ item.routerLink }}" routerLinkActive="active-route" [routerLinkActiveOptions]="{ exact: true }">
+      <i class="material-symbols-rounded">trip_origin</i>
+      <span [@fadeInOut]="collapsed">{{ item.label }}</span>
+    </a>
+    }
+
+    @if (item.items && item.items.length > 0) {
+    <a [class.active-route]="false" (click)="toggleExpanded(item)">
+      <i class="material-symbols-rounded">trip_origin</i>
+      <span [@fadeInOut]="collapsed">{{ item.label }}</span>
+      @if (item.items && item.items.length > 0) {
+      <i [@fadeInOut]="collapsed" class="material-symbols-rounded">
+        expand_{{ item.expanded ? 'less' : 'more' }}
+      </i>
+      }
+    </a>
+    <submenu [sublevel]="item" [multiple]="multiple" [collapsed]="collapsed" [expanded]="item.expanded" />
+    }
+  </li>
+  }
+</ul>
+}

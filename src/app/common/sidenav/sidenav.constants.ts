@@ -1,11 +1,45 @@
 import { animate, animateChild, group, keyframes, query, state, style, transition, trigger } from '@angular/animations'
 
-export const navItems = {
+
+export interface NavItem {
+  icon?: string
+  label: string
+  routerLink: string
+  expanded?: boolean
+  items?: NavItem[]
+}
+
+interface NavigationItems {
+  main: NavItem[]
+  footer?: NavItem[]
+}
+
+export const navItems: NavigationItems = {
   main: [
     {
       label: 'Inbox',
       icon: 'mail',
       routerLink: 'inbox',
+      items: [
+        {
+          label: 'Scheduled',
+          routerLink: 'inbox/scheduled',
+          items: [
+            {
+              label: 'Tomorrow',
+              routerLink: 'inbox/scheduled/tomorrow'
+            },
+            {
+              label: 'In a week',
+              routerLink: 'inbox/scheduled/week'
+            },
+            {
+              label: 'In a month',
+              routerLink: 'inbox/scheduled/month'
+            }
+          ]
+        }
+      ]
     },
     {
       label: 'Starred',
@@ -21,6 +55,25 @@ export const navItems = {
       label: 'Document',
       icon: 'description',
       routerLink: 'document',
+      expanded: false,
+      items: [
+        {
+          label: 'All documents',
+          routerLink: 'document'
+        },
+        {
+          label: 'Music',
+          routerLink: 'document/music'
+        },
+        {
+          label: 'Videos',
+          routerLink: 'document/videos'
+        },
+        {
+          label: 'Office',
+          routerLink: 'document/office'
+        }
+      ]
     },
     {
       label: 'Important',
@@ -85,6 +138,12 @@ export const animateToggleSidenavBtn = trigger('animToggleSidenavBtn', [
   state('hidden', style({ left: '-26px', opacity: 0 })),
   state('all', style({ left: '-26px', opacity: 0 })),
   transition('* <=> *', animate('0.5s ease'))
+])
+
+export const toggleSubmenu = trigger('toggleSubmenu', [
+  state('false', style({ height: 0, overflow: 'hidden' })),
+  state('true', style({ height: '*', overflow: 'visible' })),
+  transition('false <=> true', animate('0.25s linear')),
 ])
 
 export const fadeInOut = trigger('fadeInOut', [

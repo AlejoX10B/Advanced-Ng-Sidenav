@@ -1,14 +1,16 @@
 import { Component, inject } from '@angular/core'
 import { RouterModule } from '@angular/router'
 
-import { animateToggleSidenavBtn, fadeInOut, navItems, rotate } from './sidenav.constants'
+import { NavItem, animateToggleSidenavBtn, fadeInOut, navItems, rotate } from './sidenav.constants'
 
+import SubmenuComponent from '../submenu/submenu.component'
 import SidenavService from '../sidenav.service'
 
 
 @Component({
   imports: [
-    RouterModule
+    RouterModule,
+    SubmenuComponent
   ],
   animations: [,
     animateToggleSidenavBtn,
@@ -22,11 +24,30 @@ import SidenavService from '../sidenav.service'
 })
 export default class SidenavComponent {
 
-  private sidenavService = inject(SidenavService)
+  private _sidenavService = inject(SidenavService)
 
-  collapsed = this.sidenavService.collapsed
-  state = this.sidenavService.state
+  collapsed = this._sidenavService.collapsed
+  state = this._sidenavService.state
 
+  multiple = true
   items = navItems
+
+  activeListItem(item: NavItem) {
+    return this._sidenavService.isActiveListItem(item.routerLink)
+  }
+
+  toggleExpanded(item: NavItem) {
+    const items = this.items.main
+
+    if (!this.multiple) {
+      for (let model of items) {
+        if (item !== model && model.expanded) {
+          model.expanded = false
+        }
+      }
+    }
+
+    item.expanded = !item.expanded
+  }
 
 }
