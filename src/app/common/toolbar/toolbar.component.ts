@@ -1,10 +1,13 @@
 import { Component, inject } from '@angular/core'
+import { RouterLink } from '@angular/router'
 
 import SidenavService from '../sidenav.service'
 
 
 @Component({
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   standalone: true,
   selector: 'toolbar',
   templateUrl: './toolbar.component.html',

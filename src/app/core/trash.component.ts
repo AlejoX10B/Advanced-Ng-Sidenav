@@ -5,8 +5,12 @@ import { Component } from '@angular/core'
   standalone: true,
   imports: [],
   template: `
+    <h1>Trash</h1>
+
     <p>
-      trash works!
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia deserunt 
+      iste cumque error molestiae inventore, officiis, reprehenderit incidunt magni
+      quidem culpa. Optio quae porro odit. Ullam quis nihil accusamus esse?
     </p>
   `,
   styles: ``

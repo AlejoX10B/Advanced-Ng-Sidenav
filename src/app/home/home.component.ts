@@ -26,9 +26,9 @@ import ToolbarComponent from '../common/toolbar/toolbar.component'
     <main [@animMain]="animMainConfig()">
       <toolbar />
       
-      <div class="content">
+      <section class="content">
         <router-outlet />
-      </div>
+      </section>
     </main>
   `,
   styleUrl: './home.component.css',

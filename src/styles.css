@@ -26,6 +26,12 @@ body {
   height: 100svh;
 }
 
+h1,
+h2,
+p {
+  margin: revert;
+}
+
 button {
   border: none;
   cursor: pointer;
